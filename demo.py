@@ -80,9 +80,14 @@ def main():
         image = read_image(frame_path)
         start_time = time.time()
         out = tracker.track(image)
+        x,y,w,h = out
+        cv.rectangle(image, (int(x),int(y)),(int(x+w),int(y+h)),(0,255,0),3)
+        cv.imshow('show',image)
         times.append(time.time() - start_time)
         pred_box.append(out)
-
+        if cv.waitKey(1) == ord('q'):
+            break
+    cv.destroyAllWindows()
     if not os.path.isdir(args.output_path):
         os.mkdir(args.output_path, mode=0o777)
 
@@ -90,6 +95,7 @@ def main():
     time_file = os.path.join(args.output_path, args.time_file)
     save_bb(bbox_file, pred_box)
     save_time(time_file, times)
+    print("FPS: ", len(times)/sum(times))
 
 
 if __name__ == '__main__':
