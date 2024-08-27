@@ -165,7 +165,7 @@ def sample_target(im, target_bb, search_area_factor, output_sz=None, mask=None):
         float - the factor by which the crop has been resized to make the crop size equal output_size
     """
     if not isinstance(target_bb, list):
-        x, y, w, h = target_bb.tolist()
+        x, y, w, h = list(target_bb)
     else:
         x, y, w, h = target_bb
     # Crop image
