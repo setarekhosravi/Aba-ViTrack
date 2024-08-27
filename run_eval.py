@@ -53,7 +53,7 @@ def get_ground_truth(path):
     file = open(path, "r")
     gTruth = []
     for item in file:
-        item = item.strip()det
+        item = item.strip()
         item = item.strip(";")
         item = eval(item)
         gTruth.append(item)
