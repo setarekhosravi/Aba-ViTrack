@@ -22,7 +22,7 @@ from model.head import CenterPredictor
 from model.AbaViT import abavit_patch16_224
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="SiamBAN Inference to Evaluation")
+    parser = argparse.ArgumentParser(description="Aba Inference to Evaluation")
     parser.add_argument('--data_path', type=str, required=True, help="Path to input images folder or video file")
     parser.add_argument('--save_path', type=str, required=False, help="path to folder for saving results")
     parser.add_argument('--update_rate', type=int, required=True, help="Update rate")
