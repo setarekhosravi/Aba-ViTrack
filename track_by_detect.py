@@ -83,10 +83,6 @@ def main():
             if ret==0:
                 break
 
-            # substitute by your object detector, output has to be N X (x, y, x, y, conf, cls)
-            # dets = np.array([[584.000,382.000,584.000 + 81.000,32.000 + 382.000, 0.9, 0]])
-            t1 = time.time()
-
             # using another loading method
             # using torch.hub
             preds = det_model(img)
