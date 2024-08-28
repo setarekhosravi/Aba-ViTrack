@@ -24,6 +24,22 @@ Download the model and put it in checkpoints
    python demo.py --initial_bbox 499 421 102 179 
    ```
 
+## Run Aba-ViTrack on custom video
+
+### Update tracker using ground truth
+
+```bash
+python run_eval.py --data_path /path/to/video/file --save_path /path/to/saving/dir --update_rate 10
+```
+
+### Update tracker using YOLO as detector
+
+```bash
+python track_by_detect.py --data_path /path/to/video/file --save_path /path/to/saving/dir --update_rate 10 --det_weights /path/to/yolo/weights
+```
+
+> 📝 By running these codes, you can run your tracker on a custom video and store the results in xyxy format. These codes are used to evaluate your tracker using detection methods to find its effect on detection performance.
+
 ## Citation
 ```
 @InProceedings{Li_2023_ICCV,
